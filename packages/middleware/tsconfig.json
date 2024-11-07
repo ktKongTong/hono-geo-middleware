@@ -1,0 +1,20 @@
+{
+//  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": [ "ESNext", "dom" ],
+
+    "types": [
+      "@cloudflare/workers-types/2023-07-01"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+}

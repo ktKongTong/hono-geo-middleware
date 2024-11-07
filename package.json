@@ -1,0 +1,21 @@
+{
+  "name": "geo-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
+  "devDependencies": {
+    "netlify-cli": "^17.37.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "hono": "^4.6.9",
+    "turbo": "^2.2.3"
+  }
+}

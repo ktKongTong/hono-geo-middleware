@@ -1,0 +1,11 @@
+.wrangler
+node_modules
+dist
+# Local Netlify folder
+.netlify
+.vercel
+.turbo
+.idea
+.env
+netlify.toml
+wrangler.toml

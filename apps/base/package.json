@@ -1,0 +1,25 @@
+{
+  "name": "example-base",
+  "scripts": {
+    "build": "tsup ./src/index.ts --format esm,cjs --dts"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "dependencies": {
+    "hono": "^4.6.9"
+  },
+  "devDependencies": {
+    "hono-middleware-geo": "workspace:^",
+    "tsup": "^8.3.5"
+  }
+}
