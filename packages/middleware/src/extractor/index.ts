@@ -1,10 +1,10 @@
 
-import { vercel } from './vercel'
-import { cloudflareWorker } from './cloudflare-worker'
-import { cloudflare } from './cloudflare'
-import { netlify } from './netlify'
-import { GeoExtractorFunc } from './type'
-import { cloudfront } from './cloudfront'
+import { vercel } from './vercel.ts'
+import { cloudflareWorker } from './cloudflare-worker.ts'
+import { cloudflare } from './cloudflare.ts'
+import { netlify } from './netlify.ts'
+import type { GeoExtractorFunc } from './type.ts'
+import { cloudfront } from './cloudfront.ts'
 
 
 export const extractorFuncs: GeoExtractorFunc[] = [

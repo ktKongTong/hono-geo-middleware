@@ -1,6 +1,6 @@
 // import type { Context as NFCtx } from "@netlify/edge-functions";
-import { Context } from 'hono'
-import { GeoExtractorFunc } from './type'
+import type { Context } from 'hono'
+import type { GeoExtractorFunc } from './type.ts'
 
 const REQUEST_ID_HEADER_NAME = 'X-Nf-request-id'
 const IP_HEADER_NAME = "X-Nf-Client-Connection-Ip"

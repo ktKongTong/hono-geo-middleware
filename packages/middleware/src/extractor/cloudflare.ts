@@ -1,4 +1,4 @@
-import { GeoExtractorFunc } from './type'
+import type { GeoExtractorFunc } from './type.ts'
 
 const REQUEST_ID_HEADER_NAME = 'CF-ray'
 

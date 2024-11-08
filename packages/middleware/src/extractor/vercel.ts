@@ -1,4 +1,4 @@
-import { GeoExtractorFunc } from './type'
+import type { GeoExtractorFunc } from './type.ts'
 
 
 export const CITY_HEADER_NAME = 'x-vercel-ip-city';

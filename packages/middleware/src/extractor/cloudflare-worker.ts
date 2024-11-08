@@ -1,4 +1,4 @@
-import { GeoExtractorFunc } from './type'
+import type { GeoExtractorFunc } from './type.ts'
 import { getRuntimeKey } from 'hono/adapter'
 import type {Request} from '@cloudflare/workers-types'
 

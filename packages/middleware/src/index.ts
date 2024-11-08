@@ -1,10 +1,11 @@
 import { createMiddleware } from 'hono/factory'
-import { Context } from 'hono'
-import { Geo } from './interface'
+import type { Context } from 'hono'
+import type { Geo } from './interface.ts'
 
-import { extractorFuncs, extractorFuncsMap, Extractor } from './extractor'
-import { ExtractorOptions, GeoExtractorFunc } from './extractor/type'
-import { createInsensitiveHeaderProxy } from './util'
+import { extractorFuncs, extractorFuncsMap, type Extractor } from './extractor/index.ts'
+import type { ExtractorOptions, GeoExtractorFunc } from './extractor/type.ts'
+import { createInsensitiveHeaderProxy } from './util.ts'
+import type {Env, Input} from "hono/types";
 
 declare module 'hono' {
   interface ContextVariableMap {
@@ -18,10 +19,11 @@ interface GeoMiddlewareOptions {
   extractorOption?: ExtractorOptions
 }
 
-export const GeoMiddleware = (options?: GeoMiddlewareOptions) => {
+// deno-lint-ignore ban-types no-explicit-any
+export const GeoMiddleware = <E extends Env = any, P extends string = string, I extends Input = {}>(options?: GeoMiddlewareOptions) => {
   const extractors = options?.extractors ?? extractorFuncs
   const availableExtractorFuncs = extractors.map(it => typeof it === 'string' ? extractorFuncsMap[it] : it)
-  return createMiddleware(async (c, next) => {
+  return createMiddleware<E,P,I>(async (c, next) => {
     const geo = extractGeo(c, availableExtractorFuncs, options?.extractorOption)
     c.set('geo', geo)
     await next()
