@@ -4,6 +4,10 @@
     "hono/netlify": "https://esm.sh/hono@4.6.9/netlify",
     "hono/factory": "https://esm.sh/hono@4.6.9/factory",
     "hono/adapter": "https://esm.sh/hono@4.6.9/adapter",
-    "hono-geo-middleware": "../../packages/middleware/src/index.ts"
+    "hono/cors": "https://esm.sh/hono@4.6.9/cors",
+    "hono-geo-middleware": "../../packages/middleware/src/index.ts",
+    "@repo/hono-geo-middleware": "../../packages/middleware/src/index.ts",
+
+    "@repo/example-base": "../base/src/index.ts"
   }
 }
