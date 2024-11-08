@@ -9,3 +9,5 @@ dist
 .env
 netlify.toml
 wrangler.toml
+.next
+next-env.d.ts

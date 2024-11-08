@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241022.0",
-    "example-base": "workspace:^",
-    "hono-middleware-geo": "workspace:^",
+    "@repo/example-base": "workspace:^",
+    "@repo/hono-geo-middleware": "workspace:^",
     "tsup": "^8.3.5",
     "wrangler": "^3.83.0"
   }

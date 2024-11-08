@@ -1,6 +1,6 @@
 import { handle } from 'hono/vercel'
 import { Hono } from 'hono'
-import {GeoMiddleware, getGeo} from "hono-middleware-geo";
+import {GeoMiddleware, getGeo} from "@repo/hono-geo-middleware";
 
 export const config = {
   runtime: 'edge'
@@ -17,4 +17,4 @@ app.get('/geo', (c) => {
   return c.json(getGeo(c))
 })
 
-export default handle(app)
+export const GET = handle(app)

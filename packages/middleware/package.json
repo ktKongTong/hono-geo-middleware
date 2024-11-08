@@ -1,5 +1,5 @@
 {
-  "name": "hono-middleware-geo",
+  "name": "@repo/hono-geo-middleware",
   "version": "0.0.1",
   "description": "An example of third-party middleware for Hono",
   "type": "module",

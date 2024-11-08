@@ -1,14 +1,14 @@
 import { GeoExtractorFunc } from './type'
 import { getRuntimeKey } from 'hono/adapter'
-import {Request} from '@cloudflare/workers-types'
+import type {Request} from '@cloudflare/workers-types'
 
 const REQUEST_ID_HEADER_NAME = 'CF-ray'
 const IP_HEADER_NAME = 'CF-Connecting-IP'
 export const cloudflareWorker:GeoExtractorFunc = (headers, c)=> {
-  if(getRuntimeKey() !== 'workerd' && headers[REQUEST_ID_HEADER_NAME]) {
+  if(getRuntimeKey() !== 'workerd' && !headers[REQUEST_ID_HEADER_NAME]) {
     return null;
   }
-  const req = c.req.raw as any as Request<any>
+  const req = c.req.raw as any as Request
   return {
     runner: 'cf-worker',
     reqId: headers[REQUEST_ID_HEADER_NAME],

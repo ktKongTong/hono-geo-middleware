@@ -1,5 +1,5 @@
 {
-  "name": "example-base",
+  "name": "@repo/example-base",
   "scripts": {
     "build": "tsup ./src/index.ts --format esm,cjs --dts"
   },
@@ -19,7 +19,7 @@
     "hono": "^4.6.9"
   },
   "devDependencies": {
-    "hono-middleware-geo": "workspace:^",
+    "@repo/hono-geo-middleware": "workspace:^",
     "tsup": "^8.3.5"
   }
 }
