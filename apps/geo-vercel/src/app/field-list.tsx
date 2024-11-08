@@ -24,8 +24,9 @@ interface FieldItemProps {
 }
 const FiledItem = ({name, value}:FieldItemProps )=> {
   let comp = 'span'
+  let v = value
   if(typeof value === 'string' || typeof value === 'number'){
-
+    v = decodeURIComponent(v)
   }
 
   if(typeof value === 'object' && Array.isArray(value)){
@@ -38,6 +39,6 @@ const FiledItem = ({name, value}:FieldItemProps )=> {
 
   return <div className={'flex items-center justify-between w-full'}>
     <span>{name}</span>
-    <span>{value}</span>
+    <span>{v}</span>
   </div>
 }

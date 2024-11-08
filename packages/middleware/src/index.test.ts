@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { GeoMiddleware } from './index'
+import {describe, it, expect} from "vitest";
 
 describe('Hello middleware', () => {
   const app = new Hono()

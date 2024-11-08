@@ -4,12 +4,11 @@
     "start": "next dev",
     "build": "next build",
     "dev": "next dev",
-    "deploy": "vercel"
+    "deploy": "vercel ../../"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.1.2",
     "@repo/example-base": "workspace:^",
-    "@repo/hono-geo-middleware": "workspace:^",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "hono": "^4.6.9",

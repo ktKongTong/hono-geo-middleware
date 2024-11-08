@@ -1,7 +1,15 @@
 import {useEffect, useState} from "react";
 
-const request = (host: string)=> {
-  return fetch(`${host}`).then(res => res.json())
+
+
+const providerHostName = {
+  'vercel': '/api/geo',
+  'cloudflare':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
+  'cloudflare-worker':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
+}
+
+const request = (provider: string)=> {
+  return fetch(providerHostName[provider as keyof typeof providerHostName]).then(res => res.json()).catch(err => null);
 }
 
 type Status = {
@@ -16,11 +24,6 @@ const defaultStatus = {
   error: null
 }
 
-const providerHostName = {
-  'vercel': '/api/geo',
-  'cloudflare':'https://geo-cf-worker.kt-f63.workers.dev/geo',
-  'cloudflare-worker':'https://geo-cf-worker.kt-f63.workers.dev/geo',
-}
 
 export const useGeo = ()=> {
   const availableProvider = ['vercel', 'cloudflare', 'cloudflare-worker']
@@ -34,7 +37,7 @@ export const useGeo = ()=> {
       error: null
     })
     try {
-      const res = await request(providerHostName[provider as keyof typeof providerHostName] ?? 'vercel')
+      const res = await request(provider ?? 'vercel')
       setGeo(res)
       setStatus({
         loading: false,
@@ -42,6 +45,7 @@ export const useGeo = ()=> {
         success: true,
       })
     }catch(err){
+      setGeo(null)
       setStatus({
         loading: false,
         error: err as any,
@@ -50,7 +54,6 @@ export const useGeo = ()=> {
     }
   }
   useEffect(() => {
-    setGeo(null)
     const r = req()
   }, [provider])
   return {

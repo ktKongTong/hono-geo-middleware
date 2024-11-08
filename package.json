@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy:worker": "wrangler deploy --minify apps/geo-cf-worker/src/index.ts",
+    "deploy:vercel": "vercel",
     "build": "turbo build"
   },
   "keywords": [],
