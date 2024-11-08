@@ -9,7 +9,7 @@
     "strict": true,
     "skipLibCheck": true,
     "lib": [ "ESNext", "dom" ],
-
+    "allowImportingTsExtensions": true,
     "types": [
       "@cloudflare/workers-types/2023-07-01"
     ]
