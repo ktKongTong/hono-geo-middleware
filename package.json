@@ -6,6 +6,7 @@
   "scripts": {
     "deploy:worker": "wrangler deploy --minify apps/geo-cf-worker/src/index.ts",
     "deploy:vercel": "vercel",
+netlift    "deploy:netlify":"netlify deploy --filter geo-netlify --prod",
     "build": "turbo build"
   },
   "keywords": [],
