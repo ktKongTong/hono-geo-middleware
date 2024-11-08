@@ -1,4 +1,5 @@
 import type { GeoExtractorFunc } from './type.ts'
+import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
 
 export const CITY_HEADER_NAME = 'x-vercel-ip-city';
@@ -40,16 +41,24 @@ export const vercel:GeoExtractorFunc = (headers)=> {
   }
   return {
     ip: headers[IP_HEADER_NAME],
-    city: headers[CITY_HEADER_NAME],
-    country: headers[COUNTRY_HEADER_NAME],
-    /* ISO 3166-2 code */
-    countryRegion: headers[REGION_HEADER_NAME],
+    city: tryDecodeURIText(headers[CITY_HEADER_NAME]),
+    countryCode: headers[COUNTRY_HEADER_NAME],
+    regionCode: headers[REGION_HEADER_NAME],
     latitude: headers[LATITUDE_HEADER_NAME],
     longitude: headers[LONGITUDE_HEADER_NAME],
 
     /** flag emoji */
-    flag: headers[EMOJI_FLAG_UNICODE_STARTING_POSITION],
+    flag: getFlagFromCountryCode(headers[COUNTRY_HEADER_NAME]),
     // Vercel Edge Network region name
-    region: headers[REGION_HEADER_NAME],
+    idcRegion: getRegionFromRequestId(headers[REQUEST_ID_HEADER_NAME]),
   }
+}
+
+function getRegionFromRequestId(requestId?: string): string | undefined {
+  if (!requestId) {
+    return 'dev1';
+  }
+
+  // The request ID is in the format of `region::id` or `region1:region2:...::id`.
+  return requestId.split(':')[0];
 }

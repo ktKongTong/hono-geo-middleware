@@ -1,6 +1,7 @@
 import type { Context as NFCtx } from "@netlify/edge-functions";
 import type { Context } from 'hono'
 import type { GeoExtractorFunc } from './type.ts'
+import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
 const REQUEST_ID_HEADER_NAME = 'X-Nf-request-id'
 const IP_HEADER_NAME = "X-Nf-Client-Connection-Ip"
@@ -22,7 +23,7 @@ export const netlify:GeoExtractorFunc = (headers, c:Context<Env>)=> {
   return {
     reqId: headers[REQUEST_ID_HEADER_NAME],
     ip: ctx?.ip ?? headers[IP_HEADER_NAME],
-    city: geo?.city,
+    city: tryDecodeURIText(geo?.city),
     country: geo?.country?.name,
     countryCode: geo?.country?.code,
     region: geo?.subdivision?.name,
@@ -31,6 +32,7 @@ export const netlify:GeoExtractorFunc = (headers, c:Context<Env>)=> {
     longitude: geo?.longitude?.toString(),
     postalCode: geo?.postalCode,
     timezone: geo?.timezone,
+    flag: getFlagFromCountryCode(geo?.country?.code),
     // metroCode: ,
     idcRegion: ctx?.server.region,
   }

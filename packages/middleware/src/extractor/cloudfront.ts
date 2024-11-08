@@ -1,4 +1,5 @@
 import type { GeoExtractorFunc } from './type.ts'
+import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
 export const CITY_HEADER_NAME = 'CloudFront-Viewer-City';
 export const COUNTRY_HEADER_NAME = 'CloudFront-Viewer-country';
@@ -15,12 +16,13 @@ export const cloudfront:GeoExtractorFunc = (headers)=> {
   }
   return {
     ip: headers[IP_HEADER_NAME],
-    city: headers[CITY_HEADER_NAME],
+    city: tryDecodeURIText(headers[CITY_HEADER_NAME]),
     country: headers[COUNTRY_HEADER_NAME],
     /* ISO 3166-2 code */
     regionCode: headers[REGION_HEADER_NAME],
     latitude: headers[LATITUDE_HEADER_NAME],
     longitude: headers[LONGITUDE_HEADER_NAME],
     region: headers[REGION_HEADER_NAME],
+    flag: getFlagFromCountryCode(headers[COUNTRY_HEADER_NAME]),
   }
 }

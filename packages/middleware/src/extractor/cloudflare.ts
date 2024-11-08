@@ -1,4 +1,5 @@
 import type { GeoExtractorFunc } from './type.ts'
+import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
 const REQUEST_ID_HEADER_NAME = 'CF-ray'
 
@@ -37,8 +38,8 @@ export const cloudflare:GeoExtractorFunc = (headers)=> {
   return {
     reqId: headers[REQUEST_ID_HEADER_NAME],
     ip: headers[IP_HEADER_NAME],
-    city: headers[CITY_HEADER_NAME],
-    country: headers[COUNTRY_HEADER_NAME],
+    city: tryDecodeURIText(headers[CITY_HEADER_NAME]),
+    countryCode: headers[COUNTRY_HEADER_NAME],
     region: headers[REGION_HEADER_NAME],
     regionCode: headers[REGION_CODE_HEADER_NAME],
     latitude: headers[LATITUDE_HEADER_NAME],
@@ -46,6 +47,7 @@ export const cloudflare:GeoExtractorFunc = (headers)=> {
     continent: headers[CONTINENT_HEADER_NAME],
     metroCode: headers[METRO_HEADER_NAME],
     postalCode: headers[POSTAL_HEADER_NAME],
-    timezone: headers[TIMEZONE_HEADER_NAME]
+    timezone: headers[TIMEZONE_HEADER_NAME],
+    flag: getFlagFromCountryCode(headers[COUNTRY_HEADER_NAME])
   }
 }
