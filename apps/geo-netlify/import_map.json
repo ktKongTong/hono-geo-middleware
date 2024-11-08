@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "hono": "https://esm.sh/hono",
+    "hono/netlify": "https://esm.sh/hono@4.6.9/netlify",
+    "hono/factory": "https://esm.sh/hono@4.6.9/factory",
+    "hono/adapter": "https://esm.sh/hono@4.6.9/adapter",
+    "hono-geo-middleware": "../../packages/middleware/src/index.ts"
+  }
+}

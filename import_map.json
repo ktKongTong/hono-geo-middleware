@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "hono": "jsr:@hono/hono@^4.6.9",
+    "hono-geo-middleware": "@repo/hono-geo-middleware"
+  }
+}
