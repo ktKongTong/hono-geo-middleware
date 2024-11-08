@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
 
 
+const availableProvider = ['vercel', 'cloudflare', 'cloudflare-worker', 'netlify']
 
 const providerHostName = {
   'vercel': '/api/geo',
   'cloudflare':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
   'cloudflare-worker':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
+  'netlify': `${process.env.NEXT_PUBLIC_NETLIFY_URL}/geo`
 }
 
 const request = (provider: string)=> {
@@ -26,7 +28,7 @@ const defaultStatus = {
 
 
 export const useGeo = ()=> {
-  const availableProvider = ['vercel', 'cloudflare', 'cloudflare-worker']
+
   const [provider, setProvider] = useState('vercel')
   const [geo, setGeo] = useState<Record<string, any> | null>(null)
   const [status, setStatus] = useState<Status>(defaultStatus)
