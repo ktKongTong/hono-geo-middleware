@@ -1,5 +1,8 @@
 {
   "workspace": ["packages/middleware", "apps/geo-deno"],
   "nodeModulesDir": "manual",
-  "unstable": ["bare-node-builtins", "sloppy-imports"]
+  "unstable": ["bare-node-builtins", "sloppy-imports"],
+  "tasks": {
+    "start": "deno run --allow-net --unstable-sloppy-imports apps/geo-deno/main.ts"
+  }
 }
