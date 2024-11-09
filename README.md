@@ -61,6 +61,20 @@ export default {
 }
 ```
 
+#### with deno or netlify edge function
+```ts
+import { handle } from 'https://esm.sh/hono/netlify'
+import {Hono} from "https://esm.sh/hono";
+import {GeoMiddleware, getGeo} from "https://esm.sh/hono-geo-middleware";
+
+const app = new Hono()
+app.use('/*', GeoMiddleware())
+app.get('/geo', (c) => c.json(getGeo(c)))
+
+export default handle(app)
+export const config = { path: "/*" }
+```
+
 ## interface
 ```ts
 const example = {
