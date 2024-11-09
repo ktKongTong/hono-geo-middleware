@@ -1,5 +1,15 @@
 <h1 align="center"> <code>🔥hono-geo-middleware🔥</code> </h1>
 
+
+<div align="center">
+
+[![npm version](https://img.shields.io/npm/v/hono-geo-middleware.svg)](https://npmjs.org/package/hono-geo-middleware "View this project on NPM")
+[![npm downloads](https://img.shields.io/npm/dm/hono-geo-middleware)](https://www.npmjs.com/package/hono-geo-middleware)
+[![license](https://img.shields.io/npm/l/hono-geo-middleware)](LICENSE)
+
+</div>
+
+
 geo information extractor middleware for [Hono](https://hono.dev/). Use to
 extract geo information from request's header or serverless runtime context.
 
