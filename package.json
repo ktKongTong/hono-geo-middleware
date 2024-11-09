@@ -2,7 +2,7 @@
   "name": "geo-middleware",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "deploy:worker": "wrangler deploy --minify apps/geo-cf-worker/src/index.ts",
     "deploy:vercel": "vercel",
@@ -10,9 +10,6 @@
     "deploy:deno": "deployctl deploy -p deno-geo --entrypoint apps/geo-deno/main.ts",
     "build": "turbo build --filter='!geo-vercel'"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74",
   "devDependencies": {
     "netlify-cli": "^17.37.2",

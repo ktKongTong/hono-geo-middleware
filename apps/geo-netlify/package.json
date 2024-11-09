@@ -1,3 +1,4 @@
 {
-  "name": "geo-netlify"
+  "name": "geo-netlify",
+  "private": true
 }

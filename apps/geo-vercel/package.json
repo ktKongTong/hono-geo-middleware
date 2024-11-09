@@ -5,6 +5,7 @@
     "build": "next build",
     "dev": "next dev"
   },
+  "private": true,
   "dependencies": {
     "@repo/example-base": "workspace:^",
     "@radix-ui/react-select": "^2.1.2",
