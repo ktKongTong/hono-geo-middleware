@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { GeoMiddleware } from './index'
+import {GeoMiddleware, getGeo} from './index'
 import {describe, it, expect} from "vitest";
 
 describe('Hello middleware', () => {
@@ -7,20 +7,20 @@ describe('Hello middleware', () => {
 
   app.use('/*', GeoMiddleware())
   app.get('/', (c) => c.text('foo'))
+  app.get('/geo', (c) => {return c.json(getGeo(c))})
 
 
-
-  it('Should be hello message', async () => {
-    const res = await app.request('http://localhost/hello/foo')
+  it('Should be hello', async () => {
+    const res = await app.request('http://localhost/')
     expect(res).not.toBeNull()
     expect(res.status).toBe(200)
-    expect(res.headers.get('X-Message')).toBe('Hello!')
+    expect(await res.text()).toBe('foo')
   })
 
-  it('Should be X', async () => {
-    const res = await app.request('http://localhost/x/foo')
+  it('local should be empty', async () => {
+    const res = await app.request('http://localhost/geo')
     expect(res).not.toBeNull()
     expect(res.status).toBe(200)
-    expect(res.headers.get('X-Message')).toBe('X')
+    expect(await res.json()).toStrictEqual({})
   })
 })
