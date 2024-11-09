@@ -2,10 +2,10 @@
   "name": "cf-worker",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify src/index.ts"
   },
-  "dependencies": {
-    "hono": "^4.6.9"
+  "peerDependencies": {
+    "hono": "*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241022.0",

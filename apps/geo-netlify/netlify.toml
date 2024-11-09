@@ -1,0 +1,8 @@
+[build]
+publish = '.'
+[[edge_functions]]
+  function = "index"
+  path = "/*"
+
+[functions]
+deno_import_map = "apps/geo-netlify/import_map.json"

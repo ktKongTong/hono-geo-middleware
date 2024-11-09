@@ -1,0 +1,6 @@
+{
+  "name": "@repo/example-base",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

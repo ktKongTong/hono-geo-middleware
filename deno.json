@@ -3,7 +3,7 @@
     "packages/middleware",
     "apps/geo-deno"
   ],
-  "nodeModulesDir": "manual",
+  "nodeModulesDir": "auto",
   "unstable": [
     "bare-node-builtins",
     "sloppy-imports"

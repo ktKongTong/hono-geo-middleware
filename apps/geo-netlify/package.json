@@ -1,6 +1,3 @@
 {
-  "name": "geo-netlify",
-  "devDependencies": {
-    "@repo/hono-geo-middleware": "workspace:^"
-  }
+  "name": "geo-netlify"
 }

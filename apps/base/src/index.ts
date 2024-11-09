@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import {GeoMiddleware, getGeo} from "@repo/hono-geo-middleware";
+import {GeoMiddleware, getGeo} from "hono-geo-middleware";
 import {cors} from "hono/cors";
 
 const createApp = (app:Hono) => {

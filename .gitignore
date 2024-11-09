@@ -7,7 +7,5 @@ dist
 .turbo
 .idea
 .env
-netlify.toml
-wrangler.toml
 .next
 next-env.d.ts

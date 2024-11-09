@@ -1,7 +1,7 @@
 {
-  "name": "@repo/hono-geo-middleware",
+  "name": "hono-geo-middleware",
   "version": "0.0.1",
-  "description": "An example of third-party middleware for Hono",
+  "description": "A geo middleware for Hono",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
     "test": "vitest --run",
     "build": "tsup ./src/index.ts --format esm,cjs --dts",
     "publint": "publint",
-    "release": "yarn build && yarn test && yarn publint && yarn publish"
+    "release": "pnpm build && pnpm test && pnpm publint && pnpm publish"
   },
   "exports": {
     ".": {
@@ -33,9 +33,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/honojs/middleware.git"
+    "url": "https://github.com/ktkongtong/hono-geo-middleware.git"
   },
-  "homepage": "https://github.com/honojs/middleware",
+  "homepage": "https://github.com/ktkongtong/hono-geo-middleware",
   "peerDependencies": {
     "hono": "*"
   },

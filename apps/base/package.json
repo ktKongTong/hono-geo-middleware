@@ -15,11 +15,11 @@
       }
     }
   },
-  "dependencies": {
-    "hono": "^4.6.9"
+  "peerDependencies": {
+    "hono": "*"
   },
   "devDependencies": {
-    "@repo/hono-geo-middleware": "workspace:^",
+    "hono-geo-middleware": "workspace:^",
     "tsup": "^8.3.5"
   }
 }

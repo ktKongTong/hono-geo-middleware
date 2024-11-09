@@ -6,8 +6,6 @@
     "hono/adapter": "https://esm.sh/hono@4.6.9/adapter",
     "hono/cors": "https://esm.sh/hono@4.6.9/cors",
     "hono-geo-middleware": "../../packages/middleware/src/index.ts",
-    "@repo/hono-geo-middleware": "../../packages/middleware/src/index.ts",
-
     "@repo/example-base": "../base/src/index.ts"
   }
 }

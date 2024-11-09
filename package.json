@@ -6,8 +6,9 @@
   "scripts": {
     "deploy:worker": "wrangler deploy --minify apps/geo-cf-worker/src/index.ts",
     "deploy:vercel": "vercel",
-    "deploy:netlify":"netlify deploy --filter geo-netlify --prod .",
-    "build": "turbo build"
+    "deploy:netlify":"netlify deploy --filter geo-netlify --prod",
+    "deploy:deno": "deployctl deploy -p deno-geo --entrypoint apps/geo-deno/main.ts",
+    "build": "turbo build --filter='!geo-vercel'"
   },
   "keywords": [],
   "author": "",
