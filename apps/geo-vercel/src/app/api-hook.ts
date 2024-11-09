@@ -31,8 +31,10 @@ export const useGeo = ()=> {
 
   const [provider, setProvider] = useState('vercel')
   const [geo, setGeo] = useState<Record<string, any> | null>(null)
+  const [preData, setPreData] = useState<Record<string, any> | null>(null)
   const [status, setStatus] = useState<Status>(defaultStatus)
   const req = async ()=> {
+    setPreData(geo)
     setStatus({
       loading: true,
       success: false,
@@ -60,6 +62,7 @@ export const useGeo = ()=> {
   }, [provider])
   return {
     status,
+    preData,
     provider,
     setProvider,
     geo,

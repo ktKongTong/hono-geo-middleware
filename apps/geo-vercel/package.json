@@ -3,14 +3,14 @@
   "scripts": {
     "start": "next dev",
     "build": "next build",
-    "dev": "next dev",
-    "deploy": "vercel ../../"
+    "dev": "next dev"
   },
   "dependencies": {
-    "@radix-ui/react-select": "^2.1.2",
     "@repo/example-base": "workspace:^",
+    "@radix-ui/react-select": "^2.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.11.11",
     "hono": "^4.6.9",
     "lucide-react": "^0.454.0",
     "next": "^15.0.3",
