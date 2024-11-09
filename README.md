@@ -17,11 +17,14 @@ extract geo information from request's header or serverless runtime context.
 live demo [here](https://hono-geo-middleware.vercel.app)
 
 
+### Features
+- Extracts geo-location information (e.g., country, city, IP).
+- Supports multiple serverless environments.
+- Lightweight and easy to integrate.
 ## How It Works
 
-most serverless runtime provide useful information in request header or platform specific context api.
-this middleware extract some common geo information and other useful info (maybe 😜) from
-request header and ctx object.
+Most serverless runtimes provide valuable information through request headers or platform-specific context APIs. This middleware extracts common geo-location details and other potentially useful data from both request headers and the context object.
+
 
 - cloudflare worker: [cf properties](https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties)
 
@@ -32,6 +35,7 @@ request header and ctx object.
 - vercel: [geo header](https://vercel.com/guides/geo-ip-headers-geolocation-vercel-functions) and [more](https://github.com/vercel/vercel/blob/main/packages/functions/src/headers.ts)
 
 - aws cloudfront(lambda@edge): [viewer location header](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html#cloudfront-headers-viewer-location)
+
 
 
 ## Usage
