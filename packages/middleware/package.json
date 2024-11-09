@@ -1,17 +1,18 @@
 {
   "name": "hono-geo-middleware",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A geo middleware for Hono",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "test": "vitest --run",
     "build": "tsup ./src/index.ts --format esm,cjs --dts",
-    "release": "pnpm build && pnpm test  && pnpm publish"
+    "release": "pnpm build && pnpm test  && pnpm publish --no-git-checks"
   },
   "keywords": [
     "hono", "middleware", "geo", "hono-middleware"
