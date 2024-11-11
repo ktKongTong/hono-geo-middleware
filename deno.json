@@ -13,7 +13,7 @@
     "hono-geo-middleware": "@repo/hono-geo-middleware"
   },
   "tasks": {
-    "start": "deno run --allow-net --unstable-sloppy-imports apps/geo-deno/main.ts"
+    "start": "deno run --allow-net --unstable-sloppy-imports examples/geo-deno/main.ts"
   },
   "deploy": {
     "project": "64d7ef27-0098-4bc3-b64e-6802504ab8bb",
@@ -21,6 +21,6 @@
       "**/node_modules"
     ],
     "include": [],
-    "entrypoint": "apps/geo-deno/main.ts"
+    "entrypoint": "examples/geo-deno/main.ts"
   }
 }
