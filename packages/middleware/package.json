@@ -1,6 +1,6 @@
 {
   "name": "hono-geo-middleware",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A geo middleware for Hono",
   "type": "module",
   "module": "dist/index.js",
