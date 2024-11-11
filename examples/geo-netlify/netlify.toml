@@ -5,4 +5,4 @@ publish = '.'
   path = "/*"
 
 [functions]
-deno_import_map = "apps/geo-netlify/import_map.json"
+deno_import_map = "examples/geo-netlify/import_map.json"
