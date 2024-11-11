@@ -1,7 +1,7 @@
 {
   "workspace": [
     "packages/middleware",
-    "apps/geo-deno"
+    "examples/geo-deno"
   ],
   "nodeModulesDir": "auto",
   "unstable": [
