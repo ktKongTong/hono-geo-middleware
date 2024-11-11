@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@hono/hono@^4.6.9": "4.6.9",
     "npm:@cloudflare/workers-types@^4.20231121.0": "4.20241106.0",
     "npm:@netlify/edge-functions@^2.11.0": "2.11.0",
     "npm:hono@*": "4.6.9",
@@ -12,6 +13,11 @@
     "npm:typescript@^5.6.3": "5.6.3",
     "npm:vitest@^2.1.4": "2.1.4_vite@5.4.10",
     "npm:wrangler@^3.83.0": "3.86.0_@cloudflare+workers-types@4.20241106.0_esbuild@0.17.19"
+  },
+  "jsr": {
+    "@hono/hono@4.6.9": {
+      "integrity": "4d4975f5c023d4416d26e6dd4a498c56e59958561733f56f55a9be57f023603b"
+    }
   },
   "npm": {
     "@babel/code-frame@7.26.2": {
@@ -6752,6 +6758,9 @@
     }
   },
   "workspace": {
+    "dependencies": [
+      "jsr:@hono/hono@^4.6.9"
+    ],
     "packageJson": {
       "dependencies": [
         "npm:hono@^4.6.9",
@@ -6762,7 +6771,7 @@
       ]
     },
     "members": {
-      "apps/geo-deno": {
+      "examples/geo-deno": {
         "dependencies": [
           "jsr:@hono/hono@^4.6.9"
         ]
