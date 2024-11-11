@@ -15,7 +15,6 @@ export const extractorFuncs: GeoExtractorFunc[] = [
   cloudfront
 ]
 
-// const res = await import('./netlify')
 export const extractorFuncsMap = {
   'vercel': vercel,
   'cloudflare': cloudflare,

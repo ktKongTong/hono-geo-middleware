@@ -5,6 +5,7 @@ import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
 const REQUEST_ID_HEADER_NAME = 'CF-ray'
 const IP_HEADER_NAME = 'CF-Connecting-IP'
+// see https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
 export const cloudflareWorker:GeoExtractorFunc = (headers, c)=> {
   if(getRuntimeKey() !== 'workerd' && !headers[REQUEST_ID_HEADER_NAME]) {
     return null;

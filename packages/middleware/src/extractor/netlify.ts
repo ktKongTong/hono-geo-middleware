@@ -11,7 +11,7 @@ type Env = {
     context?: NFCtx
   }
 }
-
+// see https://docs.netlify.com/edge-functions/api/#netlify-specific-context-object
 export const netlify:GeoExtractorFunc = (headers, c:Context<Env>)=> {
   if(!headers[REQUEST_ID_HEADER_NAME]) {
     return null;
@@ -30,10 +30,10 @@ export const netlify:GeoExtractorFunc = (headers, c:Context<Env>)=> {
     regionCode: geo?.subdivision?.code,
     latitude: geo?.latitude?.toString(),
     longitude: geo?.longitude?.toString(),
+    // metroCode: ,
     postalCode: geo?.postalCode,
     timezone: geo?.timezone,
     flag: getFlagFromCountryCode(geo?.country?.code),
-    // metroCode: ,
     idcRegion: ctx?.server.region,
   }
 }

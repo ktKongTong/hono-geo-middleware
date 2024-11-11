@@ -31,6 +31,8 @@ const METRO_HEADER_NAME = 'cf-metro-code';
 // cf-postal-code: The visitor’s postal code (value from the ip.src.postal_code field).
 const POSTAL_HEADER_NAME = 'cf-postal-code';
 
+// see https://developers.cloudflare.com/fundamentals/reference/http-request-headers/#cf-ray
+// and https://developers.cloudflare.com/rules/transform/managed-transforms/reference/#add-visitor-location-headers
 export const cloudflare:GeoExtractorFunc = (headers)=> {
   if(!headers[REQUEST_ID_HEADER_NAME]) {
     return null;
