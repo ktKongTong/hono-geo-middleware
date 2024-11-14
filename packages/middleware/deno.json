@@ -1,6 +1,6 @@
 {
   "name": "@repo/hono-geo-middleware",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "imports": {
     "hono": "npm:hono",
     "hono/factory": "npm:hono/factory",
