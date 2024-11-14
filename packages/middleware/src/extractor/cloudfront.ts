@@ -1,7 +1,7 @@
 import type { GeoExtractorFunc } from './type.ts'
 import {getFlagFromCountryCode, tryDecodeURIText} from "../util.ts";
 
-const IP_HEADER_NAME = 'CloudFront-Viewer-Address';
+const IP_WITH_PORT_HEADER_NAME = 'CloudFront-Viewer-Address';
 
 const CITY_HEADER_NAME = 'CloudFront-Viewer-City';
 const COUNTRY_CODE_HEADER_NAME = 'CloudFront-Viewer-Country';
@@ -18,17 +18,16 @@ const POSTAL_CODE_HEADER_NAME = 'CloudFront-Viewer-Postal-Code';
 
 const ASN_HEADER_NAME = 'CloudFront-Viewer-ASN';
 
-const REQUEST_ID_HEADER_NAME = 'x-amz-cf-id';
-
 // aws lambda@edge
 // see https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html#cloudfront-headers-viewer-location
-export const cloudfront:GeoExtractorFunc = (headers)=> {
-  if(!headers[REQUEST_ID_HEADER_NAME]) {
-    return null;
+export const cloudfront:GeoExtractorFunc = (headers, c)=> {
+  const reqId = c.env?.context?.awsRequestId
+  if(!reqId) {
+    return null
   }
   return {
-    reqId: headers[REQUEST_ID_HEADER_NAME],
-    ip: headers[IP_HEADER_NAME],
+    reqId: reqId,
+    ip: c.env?.request?.clientIp,
     city: tryDecodeURIText(headers[CITY_HEADER_NAME]),
     country: headers[COUNTRY_NAME_HEADER_NAME],
     countryCode: headers[COUNTRY_CODE_HEADER_NAME],

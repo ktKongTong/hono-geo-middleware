@@ -9,3 +9,4 @@ dist
 .env
 .next
 next-env.d.ts
+cdk.out
