@@ -36,7 +36,8 @@ Most serverless runtimes provide valuable information through request headers or
 
 - aws cloudfront(lambda@edge): [viewer location header](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html#cloudfront-headers-viewer-location)
 
-
+> [!WARNING]  
+> After testing AWS Lambda@Edge with multiple IP addresses, we found that some geo-related headers(like Country,City,ASN,etc...), as described in the CloudFront documentation, are included for certain IPs, but are missing for others. so, this middleware may not work as expected on lambda@edge
 
 ## Usage
 
