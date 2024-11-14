@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 
 
-const availableProvider = ['vercel', 'cloudflare', 'cloudflare-worker', 'netlify']
+const availableProvider = ['vercel', 'cloudflare', 'cloudflare-worker', 'netlify', 'lambda@edge']
 
 const providerHostName = {
   'vercel': '/api/geo',
   'cloudflare':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
   'cloudflare-worker':`${process.env.NEXT_PUBLIC_CF_WORKER_URL}/geo`,
-  'netlify': `${process.env.NEXT_PUBLIC_NETLIFY_URL}/geo`
+  'netlify': `${process.env.NEXT_PUBLIC_NETLIFY_URL}/geo`,
+  'lambda@edge': `${process.env.NEXT_PUBLIC_LAMBDA_EDGE_URL}/geo`
 }
 
 const request = (provider: string)=> {
