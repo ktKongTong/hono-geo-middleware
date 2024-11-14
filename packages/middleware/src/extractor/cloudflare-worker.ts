@@ -25,7 +25,7 @@ export const cloudflareWorker:GeoExtractorFunc = (headers, c)=> {
     postalCode: req.cf?.postalCode as string,
     metroCode: req.cf?.metroCode as string,
     timezone: req.cf?.timezone as string,
-    asn: req.cf?.asOrganization as string,
+    asn: req.cf?.asn?.toString() as string,
     /** flag emoji */
     flag: getFlagFromCountryCode(req.cf?.country as string)
   }
