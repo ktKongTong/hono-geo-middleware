@@ -107,6 +107,9 @@ const example = {
 
 ```ts
 interface Geo {
+  // The request ID for each request
+  reqId?: string;
+  ip?: string;
   city?: string;
   country?: string;
   /* ISO 3166-2 code */
